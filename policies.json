@@ -1,0 +1,22 @@
+{
+  "borrowing_policies": [
+    {
+      "user_type": "student",
+      "max_books": 5,
+      "loan_period_days": 14,
+      "fines_per_day": 0.50
+    },
+    {
+      "user_type": "faculty",
+      "max_books": 10,
+      "loan_period_days": 30,
+      "fines_per_day": 0.25
+    },
+    {
+      "user_type": "public",
+      "max_books": 3,
+      "loan_period_days": 7,
+      "fines_per_day": 1.00
+    }
+  ]
+}

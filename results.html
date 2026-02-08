@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Library Services Bot</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        .query {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #666;
+        }
+        .book {
+            background: #f9f9f9;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+        .book:hover {
+            transform: translateY(-5px);
+        }
+        .book-info {
+            flex: 1;
+        }
+        .book h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        .book p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .availability {
+            font-weight: bold;
+            color: #28a745;
+        }
+        .not-available {
+            color: #dc3545;
+        }
+        .no-results {
+            text-align: center;
+            font-size: 1.2em;
+            color: #666;
+            margin-top: 50px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.2s;
+        }
+        a:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search Results</h1>
+        <div class="query">Results for: "{{ query }}"</div>
+        {% if results %}
+            {% for book in results %}
+                <div class="book">
+                    <div class="book-info">
+                        <h3>{{ book.title }}</h3>
+                        <p><strong>Author:</strong> {{ book.author }}</p>
+                        <p><strong>Genre:</strong> {{ book.genre }}</p>
+                        <p class="{% if book.available %}availability{% else %}not-available{% endif %}">
+                            {% if book.available %}Available{% else %}Not Available{% endif %}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="no-results">No books found matching your query.</div>
+        {% endif %}
+        <a href="/">Search Again</a>
+    </div>
+</body>
+</html>

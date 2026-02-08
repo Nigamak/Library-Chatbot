@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Services Bot</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #4a4a4a;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input[type="text"] {
+            padding: 15px;
+            border: none;
+            border-radius: 25px;
+            width: 80%;
+            margin-bottom: 20px;
+            font-size: 1em;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            outline: none;
+        }
+        button {
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: transform 0.2s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            transform: translateY(-3px);
+        }
+        a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Library Services Bot</h1>
+        <p>Find your favorite books quickly and efficiently! Search by title or author.</p>
+        <form action="/search_books" method="post">
+            <input type="text" name="query" placeholder="Enter book title or author..." required>
+            <button type="submit">Search Books</button>
+        </form>
+        <a href="/policies">View Borrowing Policies</a>
+    </div>
+</body>
+</html>
